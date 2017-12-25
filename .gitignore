@@ -2,3 +2,5 @@
 **/.idea
 **/*.iml
 **/target
+spring-security-example-jsp/src/main/resources/
+spring-security-example-jsp/src/test/
