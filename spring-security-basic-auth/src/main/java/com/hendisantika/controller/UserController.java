@@ -1,8 +1,6 @@
 package com.hendisantika.controller;
 
-import java.util.Arrays;
-import java.util.List;
-
+import com.hendisantika.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -11,7 +9,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.hendisantika.model.User;
+import java.util.Arrays;
+import java.util.List;
+
+/**
+ * Created by IntelliJ IDEA.
+ * Project : spring-security-basic-auth
+ * User: hendisantika
+ * Email: hendisantika@gmail.com
+ * Telegram : @hendisantika34
+ * Date: 27/12/17
+ * Time: 06.28
+ * To change this template use File | Settings | File Templates.
+ */
 
 @Controller
 public class UserController {
@@ -33,26 +43,25 @@ public class UserController {
 	}
 	
 	private List<User> getUsers() {
-		User user = new User();
-		user.setId("12");
-		user.setEmail("johndoe123@gmail.com");
-		user.setName("John Doe");
-		user.setAddress("Bangalore, Karnataka");
-		User user1 = new User();
-		user1.setId("13");
-		user1.setEmail("amitsingh@yahoo.com");
-		user1.setName("Amit Singh");
-		user1.setAddress("Chennai, Tamilnadu");
-		User user2 = new User();
-		user2.setId("14");
-		user2.setEmail("bipulkumar@gmail.com");
-		user2.setName("Bipul Kumar");
-		user2.setAddress("Bangalore, Karnataka");
-		User user3 = new User();
-		user3.setId("15");
-		user3.setEmail("prakashranjan@gmail.com");
-		user3.setName("Prakash Ranjan");
-		user3.setAddress("Chennai, Tamilnadu");
+        User user = new User();
+        user.setEmail("uzumaki_naruto@gmail.com");
+        user.setName("Uzumaki Naruto");
+        user.setAddress("Konohagakure, Japan");
+
+        User user1 = new User();
+        user1.setEmail("monkey_d_luffy@onepiece.com");
+        user1.setName("Monkey D Luffy");
+        user1.setAddress("One Piece, Japan");
+
+        User user2 = new User();
+        user2.setEmail("uchiha_sasuke@konohagakure.com");
+        user2.setName("Uchiha Sasuke");
+        user2.setAddress("Konohagakure, Japan");
+
+        User user3 = new User();
+        user3.setEmail("hatake_kakashi@konohagakure.com");
+        user3.setName("Hatake Kakashi");
+        user3.setAddress("Konohagakure, Japan");
 		return Arrays.asList(user, user1, user2, user3);
 	}
 
