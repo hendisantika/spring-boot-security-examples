@@ -25,19 +25,19 @@ import java.util.List;
 
 @Controller
 public class UserController {
-	
-	@RequestMapping(path="/user", method = RequestMethod.GET)
+
+    @RequestMapping(path = "/users", method = RequestMethod.GET)
 	public ResponseEntity<List<User>>  listUser(){
 		return new ResponseEntity<List<User>>(getUsers(), HttpStatus.OK);
 	}
-	
-	@RequestMapping(path="/user/{id}", method = RequestMethod.GET)
+
+    @RequestMapping(path = "/users/{id}", method = RequestMethod.GET)
 	public ResponseEntity<User>  listUser(@PathVariable(value = "id") String id){
 		return new ResponseEntity<User>(getUsers().stream().filter(user -> user.getId().equals(id)).findFirst().orElse(null), HttpStatus.OK);
 		
 	}
-	
-	@RequestMapping(path="/user", method = RequestMethod.POST)
+
+    @RequestMapping(path = "/users", method = RequestMethod.POST)
 	public ResponseEntity<String>  listUser(@RequestBody User user){
 		return new ResponseEntity<String>("18", HttpStatus.OK);
 	}
