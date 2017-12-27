@@ -44,21 +44,25 @@ public class UserController {
 	
 	private List<User> getUsers() {
         User user = new User();
+        user.setId("1");
         user.setEmail("uzumaki_naruto@gmail.com");
         user.setName("Uzumaki Naruto");
         user.setAddress("Konohagakure, Japan");
 
         User user1 = new User();
+        user1.setId("2");
         user1.setEmail("monkey_d_luffy@onepiece.com");
         user1.setName("Monkey D Luffy");
         user1.setAddress("One Piece, Japan");
 
         User user2 = new User();
+        user2.setId("3");
         user2.setEmail("uchiha_sasuke@konohagakure.com");
         user2.setName("Uchiha Sasuke");
         user2.setAddress("Konohagakure, Japan");
 
         User user3 = new User();
+        user3.setId("4");
         user3.setEmail("hatake_kakashi@konohagakure.com");
         user3.setName("Hatake Kakashi");
         user3.setAddress("Konohagakure, Japan");
