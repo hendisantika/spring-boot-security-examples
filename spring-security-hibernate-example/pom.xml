@@ -7,8 +7,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<tomcat.version>8.0.3</tomcat.version>
-		<start-class>spring-boot-example.Application</start-class>
+        <start-class>com.hendisantika.config.Application</start-class>
 		<hibernate.version>4.3.2.Final</hibernate.version>
 	</properties>
 
@@ -25,10 +24,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
