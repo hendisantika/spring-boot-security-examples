@@ -32,10 +32,10 @@ public class UserDaoImpl implements UserDao {
         return criteria.list();
     }
 
-    public UserDetails findUserById(String userId) {
+    public UserDetails findUserByEmail(String email) {
         UserDetails userDetails = null;
         Criteria criteria = sessionFactory.openSession().createCriteria(UserDetails.class);
-        criteria.add(Restrictions.eq("id", userId));
+        criteria.add(Restrictions.eq("email", email));
         List<UserDetails> entityList = criteria.list();
         if (!entityList.isEmpty()) {
             userDetails = entityList.get(0);
