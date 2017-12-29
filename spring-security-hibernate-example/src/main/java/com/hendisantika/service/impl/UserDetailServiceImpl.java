@@ -1,10 +1,11 @@
 package com.hendisantika.service.impl;
 
 import com.hendisantika.dao.UserDao;
+import com.hendisantika.model.UserDetails;
 import com.hendisantika.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
@@ -29,19 +30,19 @@ public class UserDetailServiceImpl implements UserDetailsService, UserService {
     @Autowired
     private UserDao userDao;
 
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        com.hendisantika.model.UserDetails user = userDao.findUserById(userId);
+    public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        UserDetails user = userDao.findUserByEmail(email);
         if (user == null) {
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getId(), user.getPassword(), getAuthority());
+        return new User(String.valueOf(user.getId()), user.getPassword(), getAuthority());
     }
 
     private List<SimpleGrantedAuthority> getAuthority() {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    public List<com.hendisantika.model.UserDetails> getUsers() {
+    public List<UserDetails> getUsers() {
         return userDao.getUserDetails();
     }
 
