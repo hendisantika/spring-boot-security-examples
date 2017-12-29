@@ -26,7 +26,6 @@ import java.util.Properties;
 @EnableWebMvc
 @ComponentScan(basePackages = "com.hendisantika")
 public class BeanConfig {
-
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
