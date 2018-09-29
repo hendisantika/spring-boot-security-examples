@@ -21,7 +21,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 
-
 @Component
 public class UserDaoImpl implements UserDao {
 
