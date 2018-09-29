@@ -7,7 +7,6 @@
     <packaging>war</packaging>
 
     <properties>
-        <tomcat.version>8.0.3</tomcat.version>
         <start-class>com.hendisantika.Application</start-class>
     </properties>
 
