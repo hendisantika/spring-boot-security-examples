@@ -1,0 +1,48 @@
+version: 2
+updates:
+  - package-ecosystem: maven
+    directory: "/"
+    schedule:
+      interval: daily
+      time: '05:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+  - package-ecosystem: maven
+    directory: "/spring-boot-actuator-security"
+    schedule:
+      interval: daily
+      time: '05:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+  - package-ecosystem: maven
+    directory: "/spring-security-basic-auth"
+    schedule:
+      interval: daily
+      time: '05:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+  - package-ecosystem: maven
+    directory: "/spring-security-bcrypt-example"
+    schedule:
+      interval: daily
+      time: '05:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+  - package-ecosystem: maven
+    directory: "/spring-security-example-jsp"
+    schedule:
+      interval: daily
+      time: '05:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+  - package-ecosystem: maven
+    directory: "/spring-security-hibernate-example"
+    schedule:
+      interval: daily
+      time: '05:00'
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
