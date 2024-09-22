@@ -30,9 +30,15 @@
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>javax.servlet</groupId>-->
+        <!--            <artifactId>jstl</artifactId>-->
+        <!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.2</version>
         </dependency>
     </dependencies>
 
