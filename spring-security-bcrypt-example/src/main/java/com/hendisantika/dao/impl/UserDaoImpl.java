@@ -2,11 +2,10 @@ package com.hendisantika.dao.impl;
 
 import com.hendisantika.dao.UserDao;
 import com.hendisantika.model.UserDetails;
-import org.hibernate.Criteria;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,26 +20,25 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 
-@Component
+
+@Repository
+@Transactional(readOnly = true)
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
 
     public List<UserDetails> getUserDetails() {
-        Criteria criteria = sessionFactory.openSession().createCriteria(UserDetails.class);
-        return criteria.list();
+        return entityManager.createQuery("SELECT u FROM UserDetails u", UserDetails.class)
+                .getResultList();
     }
 
     public UserDetails findUserById(String userId) {
-        UserDetails userDetails = null;
-        Criteria criteria = sessionFactory.openSession().createCriteria(UserDetails.class);
-        criteria.add(Restrictions.eq("username", userId));
-        List<UserDetails> entityList = criteria.list();
-        if (!entityList.isEmpty()) {
-            userDetails = entityList.get(0);
-        }
-        return userDetails;
+        return entityManager.createQuery("SELECT u FROM UserDetails u WHERE u.username = :username", UserDetails.class)
+                .setParameter("username", userId)
+                .getResultStream()
+                .findFirst()
+                .orElse(null);
     }
 
 }

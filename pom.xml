@@ -21,7 +21,11 @@
     </parent>
 
     <modules>
+        <module>spring-boot-actuator-security</module>
+        <module>spring-security-basic-auth</module>
+        <module>spring-security-bcrypt-example</module>
         <module>spring-security-example-jsp</module>
+        <module>spring-security-hibernate-example</module>
     </modules>
 
 </project>

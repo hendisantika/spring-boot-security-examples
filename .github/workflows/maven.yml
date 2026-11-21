@@ -27,18 +27,8 @@ jobs:
         java-version: '25'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Build all modules with Maven
       run: mvn -B package --file pom.xml
-    - name: Build with Maven for spring-boot-actuator-security
-      run: mvn -B package --file ./spring-boot-actuator-security/pom.xml
-    - name: Build with Maven for spring-security-basic-auth
-      run: mvn -B package --file ./spring-security-basic-auth/pom.xml
-    - name: Build with Maven for spring-security-bcrypt-example
-      run: mvn -B package --file ./spring-security-bcrypt-example/pom.xml
-    - name: Build with Maven for spring-security-example-jsp
-      run: mvn -B package --file ./spring-security-example-jsp/pom.xml
-    - name: Build with Maven for spring-security-hibernate-example
-      run: mvn -B package --file ./spring-security-hibernate-example/pom.xml
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@a64327a7329c9939cf675e458452febe1894a70c

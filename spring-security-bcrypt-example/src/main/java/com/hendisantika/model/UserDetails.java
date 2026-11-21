@@ -1,6 +1,6 @@
 package com.hendisantika.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -14,12 +14,12 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table
+@Table(name = "userdetails")
 public class UserDetails {
 
     @Id
     @Column
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
