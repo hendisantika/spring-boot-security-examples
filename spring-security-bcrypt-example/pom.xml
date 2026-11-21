@@ -8,6 +8,7 @@
 
     <properties>
         <start-class>com.hendisantika.Application</start-class>
+        <java.version>25</java.version>
     </properties>
 
     <parent>

@@ -8,6 +8,7 @@
 
 	<properties>
         <start-class>com.hendisantika.config.Application</start-class>
+		<java.version>25</java.version>
 		<hibernate.version>4.3.2.Final</hibernate.version>
 	</properties>
 
