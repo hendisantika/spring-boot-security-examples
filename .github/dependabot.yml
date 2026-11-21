@@ -1,48 +1,61 @@
+# Dependabot configuration
+# Docs: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
 version: 2
 updates:
+  # Maven dependencies for the root aggregator and every example module
   - package-ecosystem: maven
+    directories:
+      - "/"
+      - "/spring-boot-actuator-security"
+      - "/spring-security-basic-auth"
+      - "/spring-security-bcrypt-example"
+      - "/spring-security-example-jsp"
+      - "/spring-security-hibernate-example"
+    schedule:
+      interval: daily
+      time: "05:00"
+      timezone: Asia/Jakarta
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - java
+    commit-message:
+      prefix: "chore(deps)"
+      include: scope
+    groups:
+      # Spring Boot parent / BOM bumps land in one PR for every module
+      spring-boot:
+        patterns:
+          - "org.springframework.boot*"
+      spring-framework:
+        patterns:
+          - "org.springframework*"
+        exclude-patterns:
+          - "org.springframework.boot*"
+      maven-plugins:
+        patterns:
+          - "org.apache.maven.plugins*"
+          - "org.codehaus.mojo*"
+      # Remaining minor & patch updates are batched together
+      maven-minor-patch:
+        update-types:
+          - minor
+          - patch
+
+  # GitHub Actions used by the CI workflow
+  - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: daily
-      time: '05:00'
+      time: "05:00"
       timezone: Asia/Jakarta
     open-pull-requests-limit: 10
-  - package-ecosystem: maven
-    directory: "/spring-boot-actuator-security"
-    schedule:
-      interval: daily
-      time: '05:00'
-      timezone: Asia/Jakarta
-    open-pull-requests-limit: 10
-  - package-ecosystem: maven
-    directory: "/spring-security-basic-auth"
-    schedule:
-      interval: daily
-      time: '05:00'
-      timezone: Asia/Jakarta
-    open-pull-requests-limit: 10
-  - package-ecosystem: maven
-    directory: "/spring-security-bcrypt-example"
-    schedule:
-      interval: daily
-      time: '05:00'
-      timezone: Asia/Jakarta
-    open-pull-requests-limit: 10
-  - package-ecosystem: maven
-    directory: "/spring-security-example-jsp"
-    schedule:
-      interval: daily
-      time: '05:00'
-      timezone: Asia/Jakarta
-    open-pull-requests-limit: 10
-  - package-ecosystem: maven
-    directory: "/spring-security-hibernate-example"
-    schedule:
-      interval: daily
-      time: '05:00'
-      timezone: Asia/Jakarta
-    open-pull-requests-limit: 10
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "daily"
+    labels:
+      - dependencies
+      - github_actions
+    commit-message:
+      prefix: "ci(deps)"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
